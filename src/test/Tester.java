@@ -5,6 +5,7 @@
  */
 package test;
 
+import entity.Employee;
 import entity.Person;
 import entity.Student;
 import facade.Facade;
@@ -32,12 +33,20 @@ public class Tester
         Facade f = new Facade(emf);
         
         Student s = new Student();
+        s.setId(2);
         s.setAge(18);
         Date d = formatter.parse("18-10-1994");
         s.setBirthDate(d);
         s.setFirstname("Jeanette");
         s.setLastname("Møller");
         s.setIsMarried(false);
-        System.out.println(f.addPerson(s));
+        System.out.println(f.addStudent(s));
+        
+        Employee e = new Employee();
+        e.setId(1);
+        e.setFirstname("Mette");
+        e.setLastname("Møller");
+        System.out.println(f.addEmployee(e));
+        
     }
 }
