@@ -7,14 +7,13 @@ package test;
 
 import entity.Employee;
 import entity.Person;
+import entity.PhDStudent;
 import entity.Student;
 import facade.Facade;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Formatter;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -48,5 +47,31 @@ public class Tester
         e.setLastname("Møller");
         System.out.println(f.addEmployee(e));
         
+        PhDStudent ps = new PhDStudent();
+        ps.setId(3);
+        e.setFirstname("Lard");
+        e.setLastname("Møller");
+        System.out.println(f.addStudent(ps));
+        
+        Person p = new Person();
+        p.setId(4);
+        p.setFirstname("Hanne");
+        p.setLastname("Jensen");
+        System.out.println(f.addPerson(p));
+        
+        s.setLastname("Borring-møller");
+        System.out.println(f.editStudent(s));
+        
+        e.setFirstname("Anette");
+        System.out.println(f.editEmployee(e));
+        
+        Date d2 = formatter.parse("6-10-1994");
+        ps.setBirthDate(d2);
+        System.out.println(f.editPhDStudent(ps));
+        
+        p.setAge(51);
+        System.out.println(f.editPerson(p));
+        
+        System.out.println(f.findPerson(4));
     }
 }
